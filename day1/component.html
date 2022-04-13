@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        class Hello extends React.Component{
+            render(){
+                return(
+                    
+                        <span>Hello</span>
+                    
+                )
+            }
+        }
+
+
+        class World extends React.Component{
+            render(){
+                return(
+                <div>
+                    <span>world!!!!</span>
+                    <li>제목</li>
+                    <li>날짜</li>
+                </div>
+                    //여러 엘리먼트를 넣으려면 부모요소가 있어야한다
+                )
+            }
+        }
+
+        const root = document.querySelector('#root')
+        class App extends React.Component{
+            render(){
+                return(
+                    <div>
+                        헬로 월드 : <Hello /> <World />
+                    </div>
+                )
+            }
+        }
+        //ReactDOM 은 기본적으로 하나의 컴포넌트만 실행을 해준다.
+        //여러 컴포넌트를 이으려면 DOM에적는 컴포넌트 안에 다른 컴포넌트를 위처럼 넣으면된다.
+        
+        ReactDOM.render(
+            <App />,
+            root
+        )
+    </script>
+</body>
+</html>

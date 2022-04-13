@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const root = document.querySelector('#root')
+
+
+        class Subject extends React.Component{
+            render(){
+                return(
+                    <tr>
+                        <th>번호</th>  
+                        <th>제목</th> 
+                        <th>내용</th> 
+                        <th>작성자</th> 
+                        <th>작성일</th>   
+                    </tr>
+                )
+            }
+        }
+
+        class Content extends React.Component{
+            render(){
+                return(
+                    <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>1</td>
+                    </tr>
+                )
+            }
+        }
+        // td의 내용이 가변적이여야하는데 내일 배울것
+        //props,state
+
+        
+        class Tail extends React.Component{
+            render(){
+                // Fragment (빈 태그 <>)
+                return(
+                    <React.Fragment>   
+                        <td>꼬릿말</td>
+                        <td>꼬릿말</td>
+                        <td>꼬릿말</td>
+                        <td>꼬릿말</td>
+                        <td>꼬릿말</td>
+                    </React.Fragment>
+                )
+            }
+        }
+
+        class Tables extends React.Component{
+            render(){
+                return(
+                    <table>
+                        <Subject /><Content /><Content /><Content /><Tail />
+                    </table>
+                )
+            }
+        }
+
+        class App extends React.Component{
+            render(){
+                return(
+                    <div>
+                        <Tables />
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(<App/> , root)
+    </script>
+</body>
+</html>

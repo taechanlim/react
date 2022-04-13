@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        // Props State
+
+    const root = document.querySelector('#root')
+
+
+        class Input extends React.Component{
+            render(){
+                return(
+                    <input type="text" value={this.props.name} />
+                )
+            }
+        }    
+
+        class App extends React.Component{
+            render(){
+                return(
+                    <div>
+                        <Input 
+                            value={1}
+                            name={'abc'}
+                            age={'26'}
+                        />
+                    </div>
+                    // 여기서의 value는 input밸류값이 아니라 넘길 데이터 값이다.
+                )
+            }
+        }
+
+        ReactDOM.render(<App />,root)
+    </script>
+</body>
+</html>

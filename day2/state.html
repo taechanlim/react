@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <!-- 
+        input box : userid, userpw
+        const userid = document.querySelector('#userid')
+        const userpw = document.querySelector('#userpw')
+
+        리액트에선 컴포넌트 안에서 사용할수있는 변수를 state 객체에 담아서 관리를 함.
+     -->
+    <script type="text/babel">
+        const root = document.querySelector('#root')
+        //state 라는 변수명을 바꾸면 작동이 안되므로 주의!
+
+        class Login extends React.Component{
+
+            state = {
+                islogin:false
+            }
+
+
+            // state의 값을 바꾸고싶으면 함수를 사용해야한다.
+            // setState() -> state 라는 변수를 바꿔주는함수
+            
+            render(){
+                const obj = {
+                    ...this.state,
+                    islogin:!this.state.islogin
+                }
+                // 이벤트 속성 주기
+                //리액트는 if,for문은 안되고 삼항연산자로만 구현가능하다
+                return(
+                    <button onClick={() => {this.setState(obj)}}>
+                        {this.state.islogin ? '로그아웃' : '로그인'}
+                        
+                    </button>
+                )
+            }
+        }
+
+        class App extends React.Component{
+            render(){
+                return(
+                    <div>
+                        <Login />
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<App /> , root)
+    </script>
+
+
+</body>
+</html>
