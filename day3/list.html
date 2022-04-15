@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const root = document.querySelector('#root')
+
+        // SELECT query날리면 데이터타입이 배열이였다.
+        // 프론트에 배열로 받으면 배열반복해서 객체내용 뽑아온후 각각 템플릿으로 껴넣은형태였다.
+
+
+        class List extends React.Component{
+            state = {
+                board:[
+                    {id:1,subject:'123'},
+                    {id:2,subject:'123'},
+                    {id:3,subject:'123'},
+            ]
+            } //DB통신해서 받은 결과물 배열,객체라고 가정
+
+            // Array 반복문 forEach , filter ,map ,reduce
+
+            list = this.state.board.map( (v,k) => {
+                return(
+                    <li key={k}>
+                        <span>{v.id}</span>  
+                        <span>{v.subject}</span>    
+                    </li>
+                )
+            } )
+
+            render(){
+                return(
+                    <ul>
+                        {this.list}
+                    </ul>
+                )
+            }
+        }
+
+        class App extends React.Component{
+            render(){
+                return(
+                    <div>
+                        <List />
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <App /> , root
+        )
+    </script>
+</body>
+</html>

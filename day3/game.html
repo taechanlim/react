@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const root = document.querySelector('#root')
+
+        // Square
+        // Board
+        // Game
+
+        class Square extends React.Component{
+            
+            render(){
+                return(
+                    <button className="square"
+                            onClick={this.props.onClick}
+                    >
+                        {this.props.value}
+                    </button>
+                )
+            }
+        }
+
+        class Board extends React.Component{
+
+            state = { 
+                squares:[null,null,null,null,null,null,null,null,null],
+                xIsNext:true,
+            }
+
+            handleClick = (i) => {
+                const squares = [...this.state.squares]
+                squares[i] = this.state.xIsNext ? 'X' : 'O'
+                this.setState({ 
+                    squares,
+                    xIsNext:!this.state.xIsNext
+                 })
+            }
+
+            renderSquare = (i) => {
+                return <Square 
+                            onClick={ ()=>{ this.handleClick(i) } } 
+                            value={this.state.squares[i]}
+                        />
+            }
+
+            render(){
+                const {renderSquare} = this
+                return(
+                    <div>
+                        <div className="status"></div>
+
+                        <div className="board-row">
+                            {renderSquare(0)}
+                            {renderSquare(1)}
+                            {renderSquare(2)}
+                        </div>
+                        <div className="board-row">
+                            {renderSquare(3)}
+                            {renderSquare(4)}
+                            {renderSquare(5)}
+                        </div>
+                        <div className="board-row">
+                            {renderSquare(6)}
+                            {renderSquare(7)}
+                            {renderSquare(8)}
+                        </div>
+                    </div>
+                )
+            }
+        }
+
+        class Game extends React.Component{
+            render(){
+                return(
+                    <div className="game">
+                        <div className="game-board">
+                            <Board />
+                        </div>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<Game /> , root)
+    </script>
+    <style>
+        body {
+            font: 14px "Century Gothic", Futura, sans-serif;
+            margin: 20px;
+            }
+
+            ol, ul {
+            padding-left: 30px;
+            }
+
+            .board-row:after {
+            clear: both;
+            content: "";
+            display: table;
+            }
+
+            .status {
+            margin-bottom: 10px;
+            }
+
+            .square {
+            background: #fff;
+            border: 1px solid #999;
+            float: left;
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 34px;
+            height: 34px;
+            margin-right: -1px;
+            margin-top: -1px;
+            padding: 0;
+            text-align: center;
+            width: 34px;
+            }
+
+            .square:focus {
+            outline: none;
+            }
+
+            .kbd-navigation .square:focus {
+            background: #ddd;
+            }
+
+            .game {
+            display: flex;
+            flex-direction: row;
+            }
+
+            .game-info {
+            margin-left: 20px;
+            }
+
+    </style>
+</body>
+</html>
