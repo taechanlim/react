@@ -34,3 +34,5 @@ webpack.config.js
 사용법 : npx webpack
 
 npx create-react-app abc -> abc라는 디렉토리 생성 + react, react-dom , react-scripts 설치
+
+npm run eject
