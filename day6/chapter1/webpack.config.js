@@ -1,15 +1,15 @@
 const path = require('path')
 const webpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
-const { web } = require('webpack')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
     //name: 이 webpack이름 설정
     name:'react-project',
-
     mode:'development', //개발모드
+    devtool:'eval',
 
     resolve:{
-        extensions:['.js','.jsx'] //확장자 설정
+        extensions:['.js','.jsx','.css'] //확장자 설정
     },
 
     //entry:내가앞으로 번들할 파일들
@@ -35,11 +35,24 @@ module.exports = {
                     'react-refresh/babel'
                 ]
             }
+        },{
+            test:/\.css$/,
+            // use:[{
+            //     loader:MiniCssExtractPlugin.loader,
+            //     option:{
+            //         esModule:false,
+            //     }
+            // },
+            // 'css-loader',
+            // ]
+            use:[MiniCssExtractPlugin.loader,'css-loader'] //option넣으려면 주석처리부분처럼 작성
         }]
     }, //내보낼때 같이 내보내는것
+    
 
     plugins:[
         new webpackPlugin(),
+        new MiniCssExtractPlugin({ filename:'style.css' }) //실질적으로 파일생성해주는역할
     ],
 
     //output:내보낼 파일의 위치와 파일명 설정.

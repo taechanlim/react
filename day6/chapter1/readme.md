@@ -65,3 +65,34 @@ npm install -D @pmmmwh/react-refresh-webpack-plugin
 npm install -D react-refresh
 
 ```
+
+CSS처리
+```
+npm install -D mini-css-extract-plugin css-loader
+```
+
+style-loader
+<div style="background:red;"></div>
+
+css-loader
+<div className="app"></div>
+
+mini-css-extract-plugin
+
+webpack -> nodejs 노드에서는 css를 실행해주는게 없다.
+webpack이 알아서 import되는거 가져와서 번들을 만드는데 css파일도 import되면
+번들해주면 되지않을까?
+
+CSS파일을 import 하는방법
+```
+```
+
+css.module 만드는 방법
+```
+```
+
+styled-component 만드는 방법
+```
+npm i styled-components
+```
+
