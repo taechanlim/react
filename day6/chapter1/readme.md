@@ -85,10 +85,12 @@ webpack이 알아서 import되는거 가져와서 번들을 만드는데 css파�
 
 CSS파일을 import 하는방법
 ```
+App.jsx파일 참조
 ```
 
 css.module 만드는 방법
 ```
+App.jsx파일, assets/module.css파일 참조
 ```
 
 styled-component 만드는 방법

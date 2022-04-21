@@ -12,7 +12,11 @@ import styless from './assets/test.module.css'
 
 import styled from 'styled-components'
 
-import GuguClass from './component/GuguClass'
+import GuguClass from './component/gugu/GuguClass'  //구구단
+
+import Comment from './component/comment/comment' //댓글
+import CommentForm from './component/comment/CommentForm'
+import CommentList from './component/comment/CommentList'
 
 // require <-- 먼저 나옴 (노드나오면서)
 // import <-- 나중에 나옴 (ES6)
@@ -42,9 +46,33 @@ const ActiveButton = styled(Button)`
 
 class App extends Component{
     state = {
-        value:'hello world!!!@@'
+        value:'hello world!!!@@',    
+        list:[
+            
+        ]
     }
+
+    //생명주기 함수
+    componentDidMount(){ //최초실행
+        this.setState({
+            ...this.state,
+            list:[  
+                    {userid:'web7722',content:'안녕하세요1',date:'2022-04-21'},
+                    {userid:'web7722',content:'안녕하세요2',date:'2022-04-21'},
+                    {userid:'web7722',content:'안녕하세요3',date:'2022-04-21'}
+                ]
+        })
+    }
+
+    addList = (obj) => {
+        this.setState({
+            list:[...this.state.list,obj]
+        })
+    }
+
     render(){
+        const {list} = this.state
+        
         return(
             <>
                 {/* <div className="color">{this.state.value}</div>
@@ -56,8 +84,14 @@ class App extends Component{
                 
                 {this.state.value} */}
 
-                <GuguClass />
+                {/* <GuguClass /> */}
 
+                
+                <Comment>
+                    <CommentForm addList={this.addList}/>
+                    <CommentList list={list}/>  
+                </Comment>
+                {/* children 활용해서 상태나 props값을 수월하게 넘겨줄수있다 */}
             </>
         )
     }
