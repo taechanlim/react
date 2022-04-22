@@ -21,7 +21,7 @@ class CommentForm extends Component{
         //axios가 발동.
         //결과물을 줄떄 그때 상태를 바꾸면된다.
         //then 콜백함수 안에서 상태를 바꾸면된다.
-        const obj = {userid:'web7722',content:this.state.value,date:"2022-04-21"}
+        const obj = {userid:'web7722',content:this.state.value,date:"2022-04-21",updateFlag:true}
         this.props.addList(obj)
         this.setState({
             value:''

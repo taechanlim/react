@@ -57,18 +57,29 @@ class App extends Component{
         this.setState({
             ...this.state,
             list:[  
-                    {userid:'web7722',content:'안녕하세요1',date:'2022-04-21'},
-                    {userid:'web7722',content:'안녕하세요2',date:'2022-04-21'},
-                    {userid:'web7722',content:'안녕하세요3',date:'2022-04-21'}
+                    {userid:'web7722',content:'안녕하세요1',date:'2022-04-21',updateFlag:true},
+                    {userid:'web7722',content:'안녕하세요2',date:'2022-04-21',updateFlag:true},
+                    {userid:'web7722',content:'안녕하세요3',date:'2022-04-21',updateFlag:true}
                 ]
         })
+
+        
     }
 
     addList = (obj) => {
         this.setState({
+            ...this.state,
             list:[...this.state.list,obj]
         })
     }
+
+    updateList = list => {
+        this.setState({
+            ...this.state,
+            list
+        })
+    }
+
 
     render(){
         const {list} = this.state
@@ -89,7 +100,10 @@ class App extends Component{
                 
                 <Comment>
                     <CommentForm addList={this.addList}/>
-                    <CommentList list={list}/>  
+                    <CommentList 
+                        list={list}
+                        updateList={this.updateList}
+                    />  
                 </Comment>
                 {/* children 활용해서 상태나 props값을 수월하게 넘겨줄수있다 */}
             </>
