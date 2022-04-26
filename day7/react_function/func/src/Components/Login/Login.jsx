@@ -7,7 +7,7 @@ const Login = () => {
     const [isLogin,setisLogin] = useState()
 
     const handleChange = (e) => {
-        console.log(e.target.name,e.target.value)
+        // console.log(e.target.name,e.target.value)
         const {name,value} = e.target
         setValues({
             ...values,
@@ -38,7 +38,7 @@ const Login = () => {
     }
 
     useEffect(()=>{
-        console.log('helloworld')
+        // console.log('helloworld')
          
     },[isLogin]) //isLogin이 바뀔때마다 코드실행
 

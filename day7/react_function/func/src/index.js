@@ -8,9 +8,9 @@ const container = document.querySelector('#root')
 const root = ReactDOM.createRoot(container)
 
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode> 얘가 있으면 2번 실행됨 (개발모드)
     <App />
-  </React.StrictMode>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
