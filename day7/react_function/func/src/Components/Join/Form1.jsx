@@ -1,6 +1,6 @@
 import React,{ useState,useEffect } from 'react'
-import useForm from '../Form/useForm.jsx'
-import validate from '../Form/validate.jsx'
+import useForm from '../Form/useForm.js'
+import validate from '../Form/validate.js'
 
 const request = async (items) => {
     
