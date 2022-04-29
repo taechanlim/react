@@ -9,7 +9,7 @@ import Form from './Components/Join/Form1.jsx';
 import Callback from './Components/Callback/Callback';
 import Context from './Components/Context/Context';
 import Reduce from './Components/Reducer/Reduce';
-
+import Comment from './Components/Comment/Comment';
 
 const App = () => {
   return (
@@ -32,6 +32,8 @@ const App = () => {
       <Context />
       <h1>Reduce</h1>
       <Reduce />
+      <h1>Comment</h1>
+      <Comment />
     </div>
   );
 }

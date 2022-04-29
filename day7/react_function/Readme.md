@@ -94,3 +94,28 @@ class App extends React.Component{
         - memo
 
 
+# 댓글 구현
+
+- Comment 컴포넌트 (전역상태)
+    CommentLayout
+        CommentForm
+        CommentList
+
+* 구성 
+- Comment
+    - api
+        CommentAPI : http://localhost:3001
+    - Store
+        Context.jsx
+        Reducer.jsx
+
+    Comment.jsx
+    CommentLayout.jsx
+    CommentForm.jsx
+    CommentList.jsx
+
+# 기본세팅
+    create-react-app
+    Context 에 대해서 먼저 작업 시작해야함.
+    
+
