@@ -19,9 +19,27 @@ const initialState = {
 
 const ADD = 'CATEGORY/ADD'
 
-const category = (state=initialState,action) => {
-    //console.log(action)
-    return state
-    
+const SUBCATE_ADD = (payload) => ({
+    type:ADD,
+    payload
+})
+
+
+const category = (state=initialState,action) =>{
+    switch(action.type){
+        case ADD:
+            return{
+                ...state,
+                mainCd:[{
+                    ...state.mainCd[0],
+                    subCate:[...state.mainCd[0].subCate,action.payload]
+                }]
+            }
+        default:
+            return state
+    }
 }
-module.exports = category
+
+
+
+module.exports = {category,SUBCATE_ADD}
